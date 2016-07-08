@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--  Designed by w w w . t e m p l a t e m o . c o m  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>free CSS template - Pizza Company Website Mainpage</title>
+
+    <meta name="keywords" content="free website templates, CSS layout, Pizza Company Website, HTML CSS"/>
+
+    <meta name="description" content="Pizza Company Website - free CSS website template, Free HTML CSS Layout"/>
+
+    <link href="/static/style.css"
+          th:href="@{style.css}" rel="stylesheet" type="text/css"/>
+
+    <!--<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"-->
+    <!--th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"-->
+    <!--rel="stylesheet" media="screen"/>-->
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.0.0/jquery.min.js"
+            th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function () {
+            $("a.order-item").click(function (e) {
+                $("#orderedAmount").text("...")
+                var popID = $(this).attr('rel'),
+                        popURL = $(this).attr('href');
+                $.get(popURL, {"itemid": popID}, function (data) { //did you mean popID here?
+//                    alert("Data Loaded: " + data);
+                    var resp = JSON.parse(data);
+                    $("#orderedAmount").text(resp.id)
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="templatemo_container">
+    <div id="templatemo_header_section">
+    </div>
+    <div id="templatemo_menu_bg">
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="current">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Pizza Menus</a></li>
+                <li><a href="#">Appetizers</a></li>
+                <li><a href="#">Beverage</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="templatemo_header_pizza">
+        <div id="cart">
+            <div id="orderedAmount"/>
+            <div class="image">
+                <img src="images/shopping-cart-md.png" alt="Shopping cart"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="templatemo_content">
+        <div id="templatemo_content_left">
+            <div class="text">
+                Nulla sed leo sed sapien sagittis aliquet. Vivamus vestibulum condimentum massa. <a
+                    href="http://www.templatemo.com">More+</a></div>
+
+            <div class="templatemo_pizza_box">
+
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="1">Super BBQ</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="2">Very Spicy</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="3">Too Hot</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="4">Sausage</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="5">Cheese Puff</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="6">Prawn</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="7">Seafood</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="8">Cocktail</a>
+                </div>
+            </div>
+            <div class="templatemo_pizza_box">
+                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
+
+                <div class="textbox">
+                    <a class="order-item" href="#" th:href="@{/item/add}" rel="9">BBQ Deluxe</a>
+                </div>
+            </div>
+        </div>
+        <div id="templatemo_content_right">
+            <h2>Free CSS Template for Pizza Website</h2>
+
+            <p>This FREE CSS template is provided by <a href="http://www.templatemo.com"
+                                                        target="_parent">TemplateMo.com</a> for pizza websites. You may
+                apply this layout for your websites. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc quis
+                sem nec tellus blandit tincidunt.Duis vitae velit sed dui malesuada dignissim. <a href="#">more+</a></p>
+            <a href="#"><img alt="Delivery Now" src="images/templatemo_pizza_delivery.jpg"/></a>
+        </div>
+        <div id="templatemo_card">
+            <img alt="Credit Cards" src="images/templatemo_cards.jpg"/>
+        </div>
+    </div>
+    <div id="templatemo_container_end">
+    </div>
+
+</div>
+<div id="templatemo_footer">
+    <div class="top">
+        <a href="index.html">Home</a> | <a href="aboutus.html">About Us</a> | <a href="#">Promotion</a> | <a href="#">Price
+        &amp; Order</a> | <a href="#">Contact us</a>
+    </div>
+    <div class="middle">
+        Copyright © Your Company Name - <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a>
+        by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+    </div>
+    <div class="button">
+        <a href="http://validator.w3.org/check?uri=referer">
+            <img height="31" alt="Valid XHTML 1.0 Transitional" src="http://www.w3.org/Icons/valid-xhtml10" width="88"
+                 vspace="8" border="0"/>
+        </a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img alt="Valid CSS!" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" vspace="8" border="0"/>
+        </a>
+    </div>
+</div>
+<div>
+</div>
+<div align="center">This template downloaded form <a href="http://all-free-download.com/free-website-templates/">free
+    website templates</a></div>
+</body>
+<!--  Designed by w w w . t e m p l a t e m o . c o m  -->
+</html>

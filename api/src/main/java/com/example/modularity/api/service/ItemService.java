@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface ItemService {
     List<Item> getAvialableItems();
+    Item getItem(Long id);
 }

@@ -21,21 +21,8 @@
     <script src="http://cdn.jsdelivr.net/webjars/jquery/3.0.0/jquery.min.js"
             th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
 
-    <script type="text/javascript" th:inline="javascript">
-        $(document).ready(function () {
-            $("a.order-item").click(function (e) {
-                $("#orderedAmount").text("...")
-                var popID = $(this).attr('rel'),
-                        popURL = $(this).attr('href');
-                $.get(popURL, {"itemid": popID}, function (data) { //did you mean popID here?
-//                    alert("Data Loaded: " + data);
-                    var resp = JSON.parse(data);
-                    $("#orderedAmount").text(resp.id)
-                });
-                e.preventDefault();
-            });
-        });
-    </script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{js/app.js}"/>
+
 </head>
 <body>
 <div id="templatemo_container">
@@ -69,70 +56,13 @@
                 Nulla sed leo sed sapien sagittis aliquet. Vivamus vestibulum condimentum massa. <a
                     href="http://www.templatemo.com">More+</a></div>
 
-            <div class="templatemo_pizza_box">
+            <!--<div class="templatemo_pizza_box">-->
+                <!--<img alt="Pizza" src="images/templatemo_pizza.jpg"/>-->
 
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="1">Super BBQ</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="2">Very Spicy</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="3">Too Hot</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="4">Sausage</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="5">Cheese Puff</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="6">Prawn</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="7">Seafood</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="8">Cocktail</a>
-                </div>
-            </div>
-            <div class="templatemo_pizza_box">
-                <img alt="Pizza" src="images/templatemo_pizza.jpg"/>
-
-                <div class="textbox">
-                    <a class="order-item" href="#" th:href="@{/item/add}" rel="9">BBQ Deluxe</a>
-                </div>
-            </div>
+                <!--<div class="textbox">-->
+                    <!--<a class="order-item" href="#" th:href="@{/order/additem}" rel="9">BBQ Deluxe</a>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
         <div id="templatemo_content_right">
             <h2>Free CSS Template for Pizza Website</h2>

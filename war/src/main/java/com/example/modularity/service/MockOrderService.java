@@ -46,6 +46,7 @@ public class MockOrderService implements OrderService {
         final Item item = itemService.getItem(itemId);
         if (item != null) {
             order.getItems().add(item);
+            order.setTotal(order.getTotal() + 1);
         }
         return order;
     }

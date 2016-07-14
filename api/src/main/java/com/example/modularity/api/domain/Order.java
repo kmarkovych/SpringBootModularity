@@ -12,6 +12,7 @@ public class Order implements Serializable {
     private Long id;
     private String status;
     private List<Item> items = new LinkedList<>();
+    private int total;
 
     public Long getId() {
         return id;
@@ -35,6 +36,14 @@ public class Order implements Serializable {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public static class Status {

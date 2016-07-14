@@ -11,16 +11,22 @@ const addItemClickHandler = function () {
         $("#orderedAmount").text("...")
         var popID = $(this).attr('rel');
         $.get(addItemUrl, {"itemid": popID}, function (data) {
-            $("#orderedAmount").text(data.items.length)
+            $("#orderedAmount").text(data.total)
         });
         e.preventDefault();
     });
 };
 
 //Fill cart on load
-const fillCart = new function () {
-    $.get(orderUrl, null, function (data) {
-        $("#orderedAmount").text(data.items.length)
+const fillCart = function () {
+    $.post(orderUrl, null, function (data) {
+        const total = data.total;
+        if(total > 0) {
+            $("#orderedAmount").text(total)
+        }
+
+        data.items.sort();
+
     });
 }
 

@@ -1,6 +1,7 @@
 /**
  * Created by Kmarkovych on 13-Jul-16.
  */
+const servicesUrl = "/services";
 const orderUrl = "/order";
 const addItemUrl = orderUrl + "/additem";
 const itemListUrl = "/item";
@@ -57,7 +58,7 @@ const createItemView = function (item) {
 }
 
 //Fill items
-const fillItemListDeffered = $.get(itemListUrl, null, function (data) {
+const fillItemListDeffered = $.post(itemListUrl, null, function (data) {
     var itemsContainer = $("#templatemo_content_left");
     $.each(data, function (i, item) {
         itemsContainer.append(createItemView(item));
@@ -65,7 +66,23 @@ const fillItemListDeffered = $.get(itemListUrl, null, function (data) {
 });
 
 
+var fillMenu = function () {
+    var menuContainer = $("#templatemo_menu");
+    $.post(servicesUrl, null, function(data){
+        var ul = document.createElement("ul");
+        $.each(data, function(i, item){
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = item.url;
+            a.innerHTML = item.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+        })
+        menuContainer.empty().append(ul);
+    })
+};
 $(document).ready(function () {
+    fillMenu();
     $.when(fillItemListDeffered).done(addItemClickHandler);
     fillCart();
 });

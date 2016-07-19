@@ -1,5 +1,6 @@
 package com.example.modularity.controller;
 
+import com.example.modularity.api.controller.PageController;
 import com.example.modularity.api.domain.Order;
 import com.example.modularity.api.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,10 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by Kmarkovych on 08-Jul-16.
  */
-@RequestMapping("order")
-public class OrderController {
+@RequestMapping(OrderController.BASE_URL)
+public class OrderController implements PageController {
 
+    protected static final String BASE_URL = "/order";
     @Autowired
     OrderService orderService;
 
@@ -36,4 +38,13 @@ public class OrderController {
         return orderService.addItem(session.getId(), itemId);
     }
 
+    @Override
+    public String getName() {
+        return "Order";
+    }
+
+    @Override
+    public String getURL() {
+        return BASE_URL;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.modularity.controller;
+package com.example.modularity.order;
 
 import com.example.modularity.api.controller.PageController;
 import com.example.modularity.api.domain.Order;

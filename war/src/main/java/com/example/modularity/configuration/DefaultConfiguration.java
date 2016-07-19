@@ -4,7 +4,6 @@ import com.example.modularity.api.service.ItemService;
 import com.example.modularity.api.service.OrderService;
 import com.example.modularity.controller.ItemController;
 import com.example.modularity.controller.MainController;
-import com.example.modularity.controller.OrderController;
 import com.example.modularity.service.MockItemService;
 import com.example.modularity.service.MockOrderService;
 import org.springframework.context.annotation.Bean;
@@ -19,11 +18,6 @@ public class DefaultConfiguration {
     @Bean
     public MainController getMainController() {
         return new MainController();
-    }
-
-    @Bean
-    public OrderController getOrderController() {
-        return new OrderController();
     }
 
     @Bean

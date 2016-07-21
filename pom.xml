@@ -27,8 +27,8 @@
 
     <modules>
         <module>api</module>
-        <module>order</module>
         <module>mockservice</module>
+        <module>order</module>
         <module>war</module>
     </modules>
 

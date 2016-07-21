@@ -2,7 +2,7 @@ package com.example.modularity.order;
 
 import com.example.modularity.api.controller.PageController;
 import com.example.modularity.api.domain.Order;
-import com.example.modularity.api.service.OrderService;
+import com.example.modularity.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -1,4 +1,4 @@
-package com.example.modularity.api.service;
+package com.example.modularity.order.service;
 
 import com.example.modularity.api.domain.Order;
 

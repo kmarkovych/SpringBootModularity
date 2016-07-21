@@ -1,6 +1,9 @@
 package com.example.modularity.order.configuration;
 
 import com.example.modularity.order.OrderController;
+import com.example.modularity.order.service.MockOrderService;
+import com.example.modularity.order.service.OrderService;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,5 +16,13 @@ public class OrderConfiguration {
     public OrderController getOrderController() {
         return new OrderController();
     }
+
+    @Bean
+    @ConditionalOnMissingBean(OrderService.class)
+    public OrderService getOrderService() {
+        return new MockOrderService();
+    }
+
+
 
 }

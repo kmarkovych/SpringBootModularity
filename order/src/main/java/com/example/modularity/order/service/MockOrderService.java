@@ -1,9 +1,8 @@
-package com.example.modularity.service;
+package com.example.modularity.order.service;
 
 import com.example.modularity.api.domain.Item;
 import com.example.modularity.api.domain.Order;
 import com.example.modularity.api.service.ItemService;
-import com.example.modularity.api.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;

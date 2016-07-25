@@ -27,6 +27,12 @@ public class MainController implements PageController {
         return "index";
     }
 
+    /**
+     * Creates JSON response with
+     *      "name" - name of available page
+     *      "url" - URL of available page
+     * @return
+     */
     @RequestMapping(value = "services", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String services() {
         Map<String, PageController> beansOfType = ctx.getBeansOfType(PageController.class);

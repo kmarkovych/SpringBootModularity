@@ -1,6 +1,6 @@
-package com.example.modularity.order.configuration;
+package com.example.modularity.order;
 
-import com.example.modularity.order.OrderController;
+import com.example.modularity.order.controller.OrderController;
 import com.example.modularity.order.service.MockOrderService;
 import com.example.modularity.order.service.OrderService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

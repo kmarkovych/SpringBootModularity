@@ -13,4 +13,9 @@ public interface PageController {
      * @return URL for menu item
      */
     String getURL();
+
+    /**
+     * @return  order id for menu
+     */
+    Integer getOrder();
 }

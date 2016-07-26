@@ -29,7 +29,7 @@
         <module>api</module>
         <module>mockservice</module>
         <module>order</module>
-	<module>about</module>
+        <module>about</module>
         <module>war</module>
     </modules>
 

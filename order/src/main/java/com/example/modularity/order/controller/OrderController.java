@@ -47,4 +47,9 @@ public class OrderController implements PageController {
     public String getURL() {
         return BASE_URL;
     }
+
+    @Override
+    public Integer getOrder() {
+        return 1;
+    }
 }

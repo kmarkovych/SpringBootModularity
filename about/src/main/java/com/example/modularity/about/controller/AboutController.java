@@ -28,4 +28,9 @@ public class AboutController implements PageController {
     public String getURL() {
         return BASE_URL;
     }
+
+    @Override
+    public Integer getOrder() {
+        return 2;
+    }
 }

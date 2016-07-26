@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Kmarkovych on 07-Jul-16.
@@ -29,24 +28,32 @@ public class MainController implements PageController {
 
     /**
      * Creates JSON response with
-     *      "name" - name of available page
-     *      "url" - URL of available page
+     * "name" - name of available page
+     * "url" - URL of available page
+     *
      * @return
      */
     @RequestMapping(value = "services", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String services() {
+    public
+    @ResponseBody
+    String services() {
         Map<String, PageController> beansOfType = ctx.getBeansOfType(PageController.class);
+        List<PageController> controllers = new LinkedList<>(beansOfType.values());
+        Comparator<PageController> comparator = new Comparator<PageController>() {
+            @Override
+            public int compare(PageController o1, PageController o2) {
+                return o1.getOrder().compareTo(o2.getOrder());
+            }
+        };
+        Collections.sort(controllers, comparator);
         StringBuilder result = new StringBuilder("[");
-        Set<Map.Entry<String, PageController>> entries = beansOfType.entrySet();
-        int size = entries.size();
-        int counter = 0;
-        for (Map.Entry<String, PageController> entry : entries) {
-            PageController value = entry.getValue();
-            result.append("{\"name\":\"").append(value.getName()).append("\",")
-            .append("\"url\":\"").append(value.getURL()).append("\"}");
-            if (++counter < size) {
+        for (int i = 0; i < controllers.size(); i++) {
+            PageController controller = controllers.get(i);
+            result.append("{\"name\":\"").append(controller.getName()).append("\",")
+                    .append("\"url\":\"").append(controller.getURL()).append("\"}");
+            if (i < controllers.size() - 1) {
                 result.append(",");
-            }else {
+            } else {
                 result.append("]");
             }
         }
@@ -61,5 +68,10 @@ public class MainController implements PageController {
     @Override
     public String getURL() {
         return BASE_URL;
+    }
+
+    @Override
+    public Integer getOrder() {
+        return 0;
     }
 }

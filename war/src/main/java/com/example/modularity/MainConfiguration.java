@@ -1,5 +1,6 @@
 package com.example.modularity;
 
+import com.example.modularity.api.controller.PageController;
 import com.example.modularity.controller.ItemController;
 import com.example.modularity.controller.MainController;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class MainConfiguration {
 
     @Bean
-    public MainController getMainController() {
+    public PageController getMainController() {
         return new MainController();
     }
 

@@ -1,5 +1,6 @@
 package com.example.modularity.order;
 
+import com.example.modularity.api.controller.PageController;
 import com.example.modularity.order.controller.OrderController;
 import com.example.modularity.order.service.MockOrderService;
 import com.example.modularity.order.service.OrderService;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OrderConfiguration {
     @Bean
-    public OrderController getOrderController() {
+    public PageController getOrderController() {
         return new OrderController();
     }
 

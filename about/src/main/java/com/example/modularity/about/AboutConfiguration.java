@@ -1,6 +1,7 @@
 package com.example.modularity.about;
 
 import com.example.modularity.about.controller.AboutController;
+import com.example.modularity.api.controller.PageController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,9 +11,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AboutConfiguration {
     @Bean
-    public AboutController getController() {
+    public PageController getController() {
         return new AboutController();
     }
 
 
 }
+
+

@@ -1,14 +1,17 @@
 package com.example.modularity.controller;
 
 import com.example.modularity.api.controller.PageController;
+import com.example.modularity.service.PageControllerPostProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Kmarkovych on 07-Jul-16.
@@ -19,7 +22,7 @@ public class MainController implements PageController {
     protected static final String BASE_URL = "/";
 
     @Autowired
-    ApplicationContext ctx;
+    PageControllerPostProcessor pageControllerPostProcessor;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
@@ -37,8 +40,7 @@ public class MainController implements PageController {
     public
     @ResponseBody
     String services() {
-        Map<String, PageController> beansOfType = ctx.getBeansOfType(PageController.class);
-        List<PageController> controllers = new LinkedList<>(beansOfType.values());
+        List<PageController> controllers = new LinkedList<>(pageControllerPostProcessor.getPageControllers());
         Comparator<PageController> comparator = new Comparator<PageController>() {
             @Override
             public int compare(PageController o1, PageController o2) {

@@ -343,8 +343,20 @@ div#cart {
 	top: 2%;
 }
 
-div#cart .image {
-	height: 100%;
-	width: 55%;
+div#cart {
+	height: 20%;
+	width: 100%;
 	position: relative;
+	right: 10%;
+	top: 2%;
+	text-align: right;
+	color: black;
+}
+
+.text-animation{
+	font-weight: bold;
+	-webkit-transition: font-weight 1s ease-out 0.5s;
+	-moz-transition: font-weight 1s ease-out 0.5s;
+	-o-transition: font-weight 1s ease-out 0.5s;
+	transition: font-weight 1s ease-out 0.5s;
 }

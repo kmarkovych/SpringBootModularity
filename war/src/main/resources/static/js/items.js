@@ -36,10 +36,18 @@ const createItemView = function (item) {
 //Add item to order
 const addItemClickHandler = function () {
     $("a.order-item").click(function (e) {
-        $("#orderedAmount").text("...")
+        $("#orderedAmount").text("")
         var popID = $(this).attr('rel');
         $.get(addItemUrl, {"itemid": popID}, function (data) {
             $("#orderedAmount").text(data.total)
+        }).fail(function(){
+            var orderedAmount = $("#orderedAmount");
+            orderedAmount.text("Order processing is unavailable!");
+            orderedAmount.css("font-weight", "bold");
+            setTimeout(function(){
+                orderedAmount.css("font-weight", "normal");
+            }, 1000);
+
         });
         e.preventDefault();
     });

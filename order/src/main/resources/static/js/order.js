@@ -1,6 +1,6 @@
 /**
- * Some order's logic
+ * order's logic
  * */
-//$(document).ready(function () {
-//
-//});
+$(document).ready(function () {
+    $.post()
+});

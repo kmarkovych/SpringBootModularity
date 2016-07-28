@@ -1,4 +1,4 @@
-package com.example.modularity.service;
+package com.example.modularity;
 
 import com.example.modularity.api.service.ItemService;
 import com.example.modularity.service.MockItemService;

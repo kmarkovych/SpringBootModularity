@@ -360,3 +360,7 @@ div#cart {
 	-o-transition: font-weight 1s ease-out 0.5s;
 	transition: font-weight 1s ease-out 0.5s;
 }
+
+td{
+	color: black;
+}

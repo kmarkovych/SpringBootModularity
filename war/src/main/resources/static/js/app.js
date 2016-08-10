@@ -1,10 +1,10 @@
 /**
  * Created by Kmarkovych on 13-Jul-16.
  */
-const servicesUrl = "/services";
-const orderUrl = "/order";
+const servicesUrl = "./services";
+const orderUrl = "./order";
 const addItemUrl = orderUrl + "/additem";
-const itemListUrl = "/item";
+const itemListUrl = "./item";
 
 
 //Fill cart on load
@@ -57,7 +57,7 @@ var fillMenu = function () {
         $.each(data, function (i, item) {
             var li = document.createElement("li");
             var a = document.createElement("a");
-            a.href = item.url;
+            a.href = "./" + item.url;
             a.innerHTML = item.name;
             li.appendChild(a);
             ul.appendChild(li);

@@ -40,7 +40,7 @@ $(document).ready(function () {
             orderContainer.append(table);
             orderContainer.append("<div style='color: black;'><span style='margin-right: 10px;'>Total:</span><span>" + total + "</span></div>");
         } else {
-            orderContainer.append("<div style='color: black;'><a href='/'>Order something please</a></div>");
+            orderContainer.append("<div style='color: black;'><a href='./'>Order something please</a></div>");
         }
     });
 
